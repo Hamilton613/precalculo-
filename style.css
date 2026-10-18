@@ -1,0 +1,267 @@
+/* ==========================================
+   CONFIGURACIÓN GENERAL
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #222;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.encabezado {
+    background: #1f2937;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.encabezado h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.encabezado p {
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.contenedor {
+    width: 92%;
+    max-width: 1250px;
+    margin: 25px auto;
+
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* ==========================================
+   PANELES
+========================================== */
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.panel h2 {
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+.campo {
+    margin-bottom: 17px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 11px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+
+    background: white;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #2563eb;
+}
+
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==========================================
+   RESULTADOS
+========================================== */
+
+.resultado-funcion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.funcion-box {
+    background: #f3f4f6;
+
+    padding: 15px;
+
+    border-radius: 9px;
+}
+
+.funcion-box span {
+    display: block;
+
+    font-size: 13px;
+
+    color: #666;
+
+    margin-bottom: 7px;
+}
+
+.funcion-box strong {
+    font-size: 18px;
+    word-break: break-word;
+}
+
+
+/* ==========================================
+   EXPLICACIÓN
+========================================== */
+
+.explicacion {
+    background: #f8fafc;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+    margin-bottom: 12px;
+}
+
+.explicacion h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.explicacion p {
+    line-height: 1.5;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   GRÁFICA
+========================================== */
+
+.grafica {
+    background: #fafafa;
+
+    border-radius: 9px;
+
+    padding: 10px;
+
+    margin-top: 5px;
+}
+
+.grafica h3 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+
+    padding-left: 5px;
+}
+
+#graficaFuncion {
+    width: 100%;
+    height: 420px;
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA
+========================================== */
+
+footer {
+    text-align: center;
+
+    padding: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   PANTALLAS PEQUEÑAS
+========================================== */
+
+@media (max-width: 850px) {
+
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .resultado-funcion {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado h1 {
+        font-size: 25px;
+    }
+
+    #graficaFuncion {
+        height: 380px;
+    }
+}       
