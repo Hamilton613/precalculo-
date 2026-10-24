@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // ==========================================
-    // ELEMENTOS DE LA PÁGINA
-    // ==========================================
     
     const boton = document.getElementById("btnCalcular");
     const funcionInput = document.getElementById("funcion");
@@ -14,19 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const explicacion = document.getElementById("textoExplicacion");
 
 
-    // ==========================================
-    // BOTÓN CALCULAR
-    // ==========================================
-
     boton.addEventListener("click", function () {
 
         const funcion = funcionInput.value.trim();
         const transformacion = transformacionInput.value;
         const unidades = Number(unidadesInput.value);
-
-        // ==========================================
-        // VALIDACIONES
-        // ==========================================
 
         if (funcion === "") {
             alert("Escribe una función primero.");
@@ -38,19 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // ==========================================
-        // FUNCIÓN ORIGINAL
-        // ==========================================
-
         funcionOriginal.textContent = "f(x) = " + funcion;
 
         let resultado = "";
         let mensaje = "";
 
-
-        // ==========================================
-        // TRANSFORMACIONES
-        // ==========================================
 
         switch (transformacion) {
 
@@ -180,19 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        // ==========================================
-        // MOSTRAR RESULTADOS
-        // ==========================================
-
         funcionTransformada.textContent =
             "g(x) = " + resultado;
 
         explicacion.textContent = mensaje;
 
-
-        // ==========================================
-        // DIBUJAR GRÁFICA
-        // ==========================================
 
         dibujarGrafica(
             funcion,
@@ -201,10 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    // ==========================================
-    // TRANSFORMACIONES HORIZONTALES
-    // ==========================================
 
     function transformarHorizontal(
         funcion,
@@ -229,10 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // ==========================================
-    // REEMPLAZAR X
-    // ==========================================
-
     function reemplazarVariable(funcion, reemplazo) {
 
         return funcion.replace(
@@ -243,20 +207,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // ==========================================
-    // PREPARAR FUNCIÓN PARA JAVASCRIPT
-    // ==========================================
-
     function prepararFuncion(funcion) {
 
         let expresion = funcion.toLowerCase().trim();
 
-        // Eliminar espacios
         expresion = expresion.replace(/\s+/g, "");
 
-        // ==========================================
-        // FUNCIONES MATEMÁTICAS
-        // ==========================================
 
         expresion = expresion.replace(
             /sqrt/g,
@@ -283,27 +239,17 @@ document.addEventListener("DOMContentLoaded", function () {
             "Math.abs"
         );
 
-        // ==========================================
-        // CONSTANTES
-        // ==========================================
-
         expresion = expresion.replace(
             /\bpi\b/g,
             "Math.PI"
         );
 
-        // ==========================================
-        // POTENCIAS
-        // ==========================================
 
         expresion = expresion.replace(
             /\^/g,
             "**"
         );
 
-        // ==========================================
-        // MULTIPLICACIÓN IMPLÍCITA
-        // ==========================================
 
         // 2x -> 2*x
         expresion = expresion.replace(
@@ -335,9 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ")*x"
         );
 
-        // ==========================================
-        // CONVERSIONES ESPECIALES
-        // ==========================================
 
         // -x -> (-x)
         expresion = expresion.replace(
@@ -348,10 +291,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return expresion;
     }
 
-
-    // ==========================================
-    // EVALUAR FUNCIÓN
-    // ==========================================
 
     function evaluarFuncion(funcion, x) {
 
@@ -390,10 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    // ==========================================
-    // CREAR PUNTOS DE LA GRÁFICA
-    // ==========================================
 
     function crearPuntos(funcion) {
 
@@ -439,10 +374,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // ==========================================
-    // DIBUJAR GRÁFICA
-    // ==========================================
-
     function dibujarGrafica(
         funcionOriginalTexto,
         funcionTransformadaTexto
@@ -454,10 +385,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const transformada =
             crearPuntos(funcionTransformadaTexto);
 
-
-        // ==========================================
-        // COMPROBAR QUE HAYA PUNTOS
-        // ==========================================
 
         const puntosOriginales =
             original.y.filter(y => y !== null);
@@ -481,10 +408,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        // ==========================================
-        // FUNCIÓN ORIGINAL
-        // ==========================================
-
         const graficaOriginal = {
 
             x: original.x,
@@ -503,9 +426,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        // ==========================================
-        // FUNCIÓN TRANSFORMADA
-        // ==========================================
 
         const graficaTransformada = {
 
@@ -531,9 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
 
 
-        // ==========================================
-        // CONFIGURACIÓN
-        // ==========================================
 
         const configuracion = {
 
@@ -595,9 +512,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        // ==========================================
-        // CREAR / ACTUALIZAR GRÁFICA
-        // ==========================================
 
         Plotly.react(
             "graficaFuncion",
