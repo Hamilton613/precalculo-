@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Asistente de Transformaciones</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     
@@ -23,13 +19,9 @@
 
     
     <main class="contenedor">
-
-        
-        <section class="panel">
-
+         <section class="panel">
             <h2>Configurar función</h2>
-
-           
+             
             <div class="campo">
                 <label for="funcion">Función</label>
 
@@ -40,9 +32,7 @@
             
             <div class="campo">
                 <label for="transformacion">Transformación</label>
-
                 <select id="transformacion">
-
                     <option value="derecha">
                         Desplazamiento a la derecha
                     </option>
@@ -78,14 +68,9 @@
                 </select>
             </div>
 
-
-           
             <div class="campo">
-
                 <label for="unidades">Unidades</label>
-
                 <input type="number" id="unidades" value="3" min="0">
-
             </div>
 
 
@@ -97,13 +82,9 @@
         </section>
 
 
-        <!-- PANEL DE RESULTADOS -->
         <section class="panel resultado">
-
             <h2>Resultado</h2>
-
             <div class="resultado-funcion">
-
                 <div class="funcion-box">
                     <span>Función original</span>
                     <strong id="funcionOriginal">
@@ -118,11 +99,8 @@
                         —
                     </strong>
                 </div>
-
             </div>
 
-
-            <!-- EXPLICACIÓN -->
             <div class="explicacion">
 
                 <h3>Explicación</h3>
@@ -134,12 +112,8 @@
 
             </div>
 
-
-            <!-- GRÁFICA -->
             <div class="grafica">
-
                 <h3>Gráfica</h3>
-
                 <div id="graficaFuncion">
                     La gráfica aparecerá aquí.
                 </div>
@@ -150,18 +124,12 @@
 
     </main>
 
-
-    <!-- PIE DE PÁGINA -->
     <footer>
-
         <p>
             Proyecto de Precálculo | Transformaciones de funciones
         </p>
-
     </footer>
 
-
-    <!-- JAVASCRIPT -->
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
     <script src="script.js"></script>
 
