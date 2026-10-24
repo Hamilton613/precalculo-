@@ -1,138 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistente de Transformaciones</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101828">
+<title>Áurea | Asistente de Precálculo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" aria-label="Áurea inicio">
+      <span class="brand-mark">∑</span><span><strong>Áurea</strong><small>ASISTENTE DE PRECÁLCULO</small></span>
+    </a>
+    <div class="sidebar-label">ESPACIO DE TRABAJO</div>
+    <button class="nav-item active" data-view="inicio"><span class="nav-icon">⌂</span> Inicio</button>
+    <button class="nav-item" data-view="transformaciones"><span class="nav-icon">↗</span> Transformaciones</button>
+    <button class="nav-item" data-view="calculadora"><span class="nav-icon">＋</span> Álgebra y ecuaciones</button>
+    <button class="nav-item" data-view="funciones"><span class="nav-icon">⌁</span> Funciones y gráficas</button>
+    <button class="nav-item" data-view="polinomios"><span class="nav-icon">xⁿ</span> Polinomios</button>
+    <button class="nav-item" data-view="trigonometria"><span class="nav-icon">△</span> Trigonometría</button>
+    <button class="nav-item" data-view="tutor"><span class="nav-icon">✦</span> Tutor gratuito <span class="ai-pill">GRATIS</span></button>
+    <div class="sidebar-spacer"></div>
+    <div class="sidebar-course">
+      <div class="course-top"><span class="course-dot"></span> TU RUTA DE APRENDIZAJE</div>
+      <strong>Precálculo · 3 módulos</strong>
+      <p>Fundamentos, funciones, polinomios y trigonometría.</p>
+      <button class="text-button" data-view="inicio">Ver módulos <span>→</span></button>
+    </div>
+    <div class="sidebar-bottom"><span class="status-dot"></span> Herramientas matemáticas listas</div>
+  </aside>
 
-    
-    <header class="encabezado">
-        <div>
-            <h1>Asistente de Transformaciones</h1>
-            <p>Aprende y visualiza cómo cambian las funciones</p>
-        </div>
+  <main class="main-area">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">☰</button>
+      <div class="breadcrumb"><span>Áurea</span><span class="crumb-sep">/</span><strong id="currentSection">Inicio</strong></div>
+      <div class="topbar-right"><span class="topbar-badge"><span class="status-dot"></span> Modo aprendizaje</span><button class="avatar" aria-label="Usuario">A</button></div>
     </header>
 
+    <section class="view active-view" id="view-inicio">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>✦</span> TU COMPAÑERO DE ESTUDIO</div>
+          <h1>Las matemáticas,<br><em>paso a paso.</em></h1>
+          <p>Resuelve ejercicios, explora gráficas y comprende cada procedimiento con herramientas creadas para tu curso de precálculo.</p>
+          <div class="hero-actions"><button class="button button-primary" data-view="calculadora">Resolver un ejercicio <span>→</span></button><button class="button button-ghost" data-view="tutor">Preguntar al tutor <span>✦</span></button></div>
+          <div class="hero-proof"><span class="proof-icon">✓</span> Procedimientos claros <span class="proof-divider"></span><span class="proof-icon">✓</span> Gráficas interactivas</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="math-card card-a"><span>Función cuadrática</span><strong>f(x) = x² − 4</strong><div class="mini-curve"></div></div>
+          <div class="math-card card-b"><span>Solución</span><strong>x = 5</strong><small>2x + 5 = 15</small></div>
+          <div class="floating-symbol symbol-one">π</div><div class="floating-symbol symbol-two">√x</div><div class="floating-symbol symbol-three">∫</div>
+          <div class="art-center"><span>∑</span></div>
+        </div>
+      </div>
 
-    
-    <main class="contenedor">
-         <section class="panel">
-            <h2>Configurar función</h2>
-             
-            <div class="campo">
-                <label for="funcion">Función</label>
+      <div class="section-heading"><div><span class="eyebrow muted">EMPIEZA POR AQUÍ</span><h2>Tu espacio de matemáticas</h2></div><span class="subtle">Elige una herramienta para comenzar</span></div>
+      <div class="tool-grid">
+        <button class="tool-card" data-view="calculadora"><span class="tool-icon violet">x²</span><span class="tool-card-title">Álgebra y ecuaciones</span><span class="tool-card-desc">Simplifica expresiones, factoriza y resuelve ecuaciones.</span><span class="tool-arrow">↗</span></button>
+        <button class="tool-card" data-view="funciones"><span class="tool-icon blue">⌁</span><span class="tool-card-title">Funciones y gráficas</span><span class="tool-card-desc">Evalúa funciones y explora su comportamiento visual.</span><span class="tool-arrow">↗</span></button>
+        <button class="tool-card" data-view="transformaciones"><span class="tool-icon orange">↗</span><span class="tool-card-title">Transformaciones</span><span class="tool-card-desc">Desplaza, refleja, estira y comprime funciones.</span><span class="tool-arrow">↗</span></button>
+        <button class="tool-card" data-view="trigonometria"><span class="tool-icon green">△</span><span class="tool-card-title">Trigonometría</span><span class="tool-card-desc">Calcula razones, ángulos y lados de triángulos.</span><span class="tool-arrow">↗</span></button>
+      </div>
+      <div class="section-heading module-heading"><div><span class="eyebrow muted">SEGÚN TU PROGRAMA</span><h2>Ruta de aprendizaje</h2></div></div>
+      <div class="module-grid">
+        <button class="module-card" data-view="calculadora"><span class="module-number">01</span><div><strong>Fundamentos</strong><p>Números reales, exponentes, radicales, expresiones, ecuaciones y desigualdades.</p><span class="module-meta">Semanas 1–5 <b>→</b></span></div></button>
+        <button class="module-card" data-view="funciones"><span class="module-number">02</span><div><strong>Funciones</strong><p>Geometría de coordenadas, rectas, gráficas, transformaciones y modelos cuadráticos.</p><span class="module-meta">Semanas 7–11 <b>→</b></span></div></button>
+        <button class="module-card" data-view="polinomios"><span class="module-number">03</span><div><strong>Polinomios y trigonometría</strong><p>División, ceros, números complejos, ángulos y leyes de senos y cosenos.</p><span class="module-meta">Semanas 13–17 <b>→</b></span></div></button>
+      </div>
+    </section>
 
-                <input type="text" id="funcion" placeholder="Ejemplo: x^2">
-            </div>
-
-
-            
-            <div class="campo">
-                <label for="transformacion">Transformación</label>
-                <select id="transformacion">
-                    <option value="derecha">
-                        Desplazamiento a la derecha
-                    </option>
-
-                    <option value="izquierda">
-                        Desplazamiento a la izquierda
-                    </option>
-
-                    <option value="arriba">
-                        Desplazamiento hacia arriba
-                    </option>
-
-                    <option value="abajo">
-                        Desplazamiento hacia abajo
-                    </option>
-
-                    <option value="reflexion-x">
-                        Reflexión respecto al eje X
-                    </option>
-
-                    <option value="reflexion-y">
-                        Reflexión respecto al eje Y
-                    </option>
-
-                    <option value="estiramiento">
-                        Estiramiento
-                    </option>
-
-                    <option value="compresion">
-                        Compresión
-                    </option>
-
-                </select>
-            </div>
-
-            <div class="campo">
-                <label for="unidades">Unidades</label>
-                <input type="number" id="unidades" value="3" min="0">
-            </div>
-
-
-           
-            <button id="btnCalcular">
-                Calcular transformación
-            </button>
-
+    <section class="view" id="view-transformaciones">
+      <div class="page-intro"><span class="eyebrow muted">MÓDULO 2 · FUNCIONES</span><h1>Transformaciones de funciones</h1><p>Observa cómo cambia una función cuando la desplazas, reflejas o modificas su escala.</p></div>
+      <div class="workspace-grid">
+        <section class="surface">
+          <div class="surface-title"><span class="step-number">01</span><div><h2>Configura la transformación</h2><p>Escribe una función de x y elige un cambio.</p></div></div>
+          <form id="transformForm">
+            <label class="field-label" for="funcion">Función original</label><input class="text-input math-input" id="funcion" value="x^2" placeholder="Ejemplo: x^2">
+            <div class="field-hint">Puedes usar x^2, 2*x+1, sqrt(x), sin(x), abs(x), pi.</div>
+            <label class="field-label" for="transformacion">Tipo de transformación</label>
+            <select class="text-input" id="transformacion">
+              <option value="derecha">Desplazamiento a la derecha</option><option value="izquierda">Desplazamiento a la izquierda</option><option value="arriba">Desplazamiento hacia arriba</option><option value="abajo">Desplazamiento hacia abajo</option><option value="reflexion-x">Reflexión respecto al eje X</option><option value="reflexion-y">Reflexión respecto al eje Y</option><option value="estiramiento">Estiramiento vertical</option><option value="compresion">Compresión vertical</option>
+            </select>
+            <label class="field-label" for="unidades">Unidades o factor</label><input class="text-input" type="number" id="unidades" value="3" min="0" step="any">
+            <button class="button button-primary full-button" type="submit">Calcular transformación <span>→</span></button>
+          </form>
         </section>
+        <section class="surface result-surface">
+          <div class="surface-title"><span class="step-number">02</span><div><h2>Resultado y gráfica</h2><p>Compara la función original con la transformada.</p></div></div>
+          <div class="equation-pair"><div class="equation-box"><span>FUNCIÓN ORIGINAL</span><strong id="funcionOriginal">f(x) = x²</strong></div><div class="equation-box highlighted"><span>FUNCIÓN TRANSFORMADA</span><strong id="funcionTransformada">g(x) = (x)²</strong></div></div>
+          <div class="explanation-box"><div class="explanation-icon">✦</div><div><strong>¿Qué sucede?</strong><p id="textoExplicacion">Configura una transformación para ver la explicación.</p></div></div>
+          <div class="graph-heading"><h3>Comparación visual</h3><span class="graph-legend"><i></i> Original <i class="legend-purple"></i> Transformada</span></div>
+          <div id="graficaFuncion" class="plot"></div>
+        </section>
+      </div>
+    </section>
 
+    <section class="view" id="view-calculadora">
+      <div class="page-intro"><span class="eyebrow muted">MÓDULO 1 · FUNDAMENTOS</span><h1>Álgebra y ecuaciones</h1><p>Introduce una expresión o ecuación y obtén un resultado acompañado de pasos orientativos.</p></div>
+      <div class="surface">
+        <div class="mode-tabs" role="tablist"><button class="mode-tab active" data-mode="simplificar">Simplificar</button><button class="mode-tab" data-mode="factorizar">Factorizar</button><button class="mode-tab" data-mode="expandir">Expandir</button><button class="mode-tab" data-mode="resolver">Resolver ecuación</button><button class="mode-tab" data-mode="evaluar">Evaluar</button><button class="mode-tab" data-mode="desigualdad">Desigualdad</button></div>
+        <form id="algebraForm" class="calculator-form">
+          <div class="form-row"><div class="grow-field"><label class="field-label" for="algebraInput" id="algebraLabel">Expresión algebraica</label><input class="text-input math-input" id="algebraInput" value="(x^2-4)/(x-2)" placeholder="Ejemplo: x^2 + 5*x + 6"></div><div class="compact-field"><label class="field-label" for="variableInput">Variable</label><input class="text-input" id="variableInput" value="x" maxlength="1"></div></div>
+          <div class="form-row extra-field" id="evalRow" hidden><div class="grow-field"><label class="field-label" for="evalValue">Valor de x</label><input class="text-input" id="evalValue" type="number" value="2" step="any"></div></div>
+          <button class="button button-primary" type="submit">Calcular <span>→</span></button>
+        </form>
+        <div id="algebraResult" class="answer-area empty-state"><div class="empty-symbol">∑</div><strong>Tu procedimiento aparecerá aquí</strong><p>Elige una operación e introduce tu ejercicio.</p></div>
+      </div>
+    </section>
 
-        <section class="panel resultado">
-            <h2>Resultado</h2>
-            <div class="resultado-funcion">
-                <div class="funcion-box">
-                    <span>Función original</span>
-                    <strong id="funcionOriginal">
-                        —
-                    </strong>
-                </div>
+    <section class="view" id="view-funciones">
+      <div class="page-intro"><span class="eyebrow muted">MÓDULO 2 · FUNCIONES</span><h1>Funciones y gráficas</h1><p>Evalúa una función, encuentra información básica y visualiza su gráfica interactiva.</p></div>
+      <div class="workspace-grid">
+        <section class="surface"><div class="surface-title"><span class="step-number">01</span><div><h2>Define tu función</h2><p>Usa x como variable independiente.</p></div></div>
+          <form id="functionForm"><label class="field-label" for="functionExpression">f(x) =</label><input class="text-input math-input" id="functionExpression" value="x^2-4" placeholder="Ejemplo: x^2-4"><div class="form-row"><div class="grow-field"><label class="field-label" for="functionX">Evaluar en x =</label><input class="text-input" id="functionX" type="number" value="3" step="any"></div><div class="grow-field"><label class="field-label" for="rangeInput">Rango visible</label><select class="text-input" id="rangeInput"><option value="10">−10 a 10</option><option value="5">−5 a 5</option><option value="20">−20 a 20</option></select></div></div><button class="button button-primary full-button" type="submit">Analizar función <span>→</span></button></form>
+          <div id="functionAnalysis" class="analysis-card"><span class="analysis-label">VALOR DE LA FUNCIÓN</span><strong id="functionValue">f(3) = —</strong><p id="functionNotes">Ingresa una función para ver su análisis.</p></div>
+        </section>
+        <section class="surface"><div class="surface-title"><span class="step-number">02</span><div><h2>Gráfica interactiva</h2><p>Acerca, aleja y explora puntos de la curva.</p></div></div><div id="functionPlot" class="plot large-plot"></div></section>
+      </div>
+    </section>
 
+    <section class="view" id="view-polinomios">
+      <div class="page-intro"><span class="eyebrow muted">MÓDULO 3 · POLINOMIOS</span><h1>Polinomios y números complejos</h1><p>Explora factorización, ceros, división de polinomios y operaciones con números complejos.</p></div>
+      <div class="surface">
+        <div class="mode-tabs polynomial-tabs"><button class="mode-tab active" data-poly="ceros">Ceros de un polinomio</button><button class="mode-tab" data-poly="division">División de polinomios</button><button class="mode-tab" data-poly="complejos">Números complejos</button></div>
+        <form id="polyForm" class="calculator-form">
+          <label class="field-label" id="polyLabel" for="polyInput">Polinomio</label><input class="text-input math-input" id="polyInput" value="x^2-5*x+6" placeholder="Ejemplo: x^2 - 5*x + 6">
+          <div id="divisionFields" class="form-row" hidden><div class="grow-field"><label class="field-label" for="divisorInput">Divisor</label><input class="text-input math-input" id="divisorInput" value="x-2"></div></div>
+          <div id="complexFields" class="form-row" hidden><div class="grow-field"><label class="field-label" for="complexSecond">Segundo número complejo</label><input class="text-input" id="complexSecond" value="1-2*i" placeholder="Ejemplo: 1-2*i"></div></div>
+          <button class="button button-primary" type="submit">Calcular <span>→</span></button>
+        </form>
+        <div id="polyResult" class="answer-area empty-state"><div class="empty-symbol">xⁿ</div><strong>El resultado aparecerá aquí</strong><p>Selecciona una herramienta de polinomios.</p></div>
+      </div>
+    </section>
 
-                <div class="funcion-box">
-                    <span>Función transformada</span>
-                    <strong id="funcionTransformada">
-                        —
-                    </strong>
-                </div>
-            </div>
+    <section class="view" id="view-trigonometria">
+      <div class="page-intro"><span class="eyebrow muted">MÓDULO 3 · TRIGONOMETRÍA</span><h1>Trigonometría y triángulos</h1><p>Calcula razones trigonométricas, convierte ángulos y resuelve triángulos.</p></div>
+      <div class="workspace-grid">
+        <section class="surface"><div class="surface-title"><span class="step-number">01</span><div><h2>Calculadora trigonométrica</h2><p>Selecciona una operación.</p></div></div>
+          <form id="trigForm"><label class="field-label" for="trigMode">Operación</label><select class="text-input" id="trigMode"><option value="razon">Seno, coseno y tangente</option><option value="inversa">Ángulo con razón inversa</option><option value="rad">Convertir grados a radianes</option><option value="deg">Convertir radianes a grados</option><option value="senos">Ley de senos: hallar lado</option><option value="cosenos">Ley de cosenos: hallar lado</option><option value="cosenosAngulo">Ley de cosenos: hallar ángulo</option></select>
+          <label class="field-label" for="trigA" id="trigALabel">Ángulo en grados</label><input class="text-input" id="trigA" type="number" value="30" step="any">
+          <div id="trigExtra"><label class="field-label" for="trigB">Lado opuesto o segundo valor</label><input class="text-input" id="trigB" type="number" value="10" step="any"><label class="field-label" for="trigC">Ángulo en grados o tercer lado</label><input class="text-input" id="trigC" type="number" value="45" step="any"></div>
+          <button class="button button-primary full-button" type="submit">Calcular <span>→</span></button></form>
+        </section>
+        <section class="surface"><div class="surface-title"><span class="step-number">02</span><div><h2>Resultado</h2><p>Consulta la fórmula y el procedimiento.</p></div></div><div id="trigResult" class="answer-area empty-state"><div class="empty-symbol">△</div><strong>Listo para calcular</strong><p>El resultado y los pasos aparecerán aquí.</p></div><div class="formula-reference"><strong>Fórmulas útiles</strong><p><b>SOH:</b> sen(θ) = opuesto / hipotenusa</p><p><b>CAH:</b> cos(θ) = adyacente / hipotenusa</p><p><b>TOA:</b> tan(θ) = opuesto / adyacente</p><p><b>Ley de cosenos:</b> c² = a² + b² − 2ab cos(C)</p></div></section>
+      </div>
+    </section>
 
-            <div class="explicacion">
+    <section class="view" id="view-tutor">
+      <div class="page-intro"><span class="eyebrow muted">APRENDIZAJE PERSONALIZADO</span><h1>Tu tutor de precálculo <span class="title-sparkle">✦</span></h1><p>Pregunta, practica y entiende los procedimientos a tu ritmo.</p></div>
+      <div class="chat-layout surface">
+        <div class="chat-header"><div class="tutor-avatar">✦</div><div><strong>Tutor Áurea</strong><span><i class="status-dot"></i> Tutor local gratuito</span></div><button class="clear-chat" id="clearChat">Nueva conversación ↻</button></div>
+        <div class="chat-messages" id="chatMessages"><div class="message assistant-message"><div class="message-avatar">✦</div><div class="message-bubble"><p>¡Hola! Soy tu tutor de precálculo. Puedo ayudarte con números reales, exponentes, ecuaciones, funciones, polinomios y trigonometría.</p><p>Escribe un ejercicio o dime qué tema quieres comprender. Lo explicaré paso a paso y con lenguaje sencillo.</p></div></div></div>
+        <div class="suggestion-row"><button class="suggestion" data-prompt="Explícame cómo resolver una ecuación cuadrática con un ejemplo.">Ecuaciones cuadráticas</button><button class="suggestion" data-prompt="Enséñame a factorizar x^2 - 5x + 6 paso a paso.">Factorización</button><button class="suggestion" data-prompt="Explícame la diferencia entre seno, coseno y tangente.">Trigonometría</button></div>
+        <form id="chatForm" class="chat-composer"><textarea id="chatInput" rows="1" placeholder="Escribe tu pregunta de precálculo..." aria-label="Pregunta para el tutor"></textarea><button class="send-button" type="submit" aria-label="Enviar pregunta">↑</button></form>
+        <div class="chat-disclaimer" id="chatStatus">Tutor local gratuito: no necesita clave API ni créditos. Sus respuestas se basan en explicaciones guiadas de precálculo.</div>
+      </div>
+    </section>
 
-                <h3>Explicación</h3>
-
-                <p id="textoExplicacion">
-                    Aquí aparecerá una explicación sencilla
-                    de la transformación.
-                </p>
-
-            </div>
-
-            <div class="grafica">
-                <h3>Gráfica</h3>
-                <div id="graficaFuncion">
-                    La gráfica aparecerá aquí.
-                </div>
-
-            </div>
-
-        </section>x
-
-    </main>
-
-    <footer>
-        <p>
-            Proyecto de Precálculo | Transformaciones de funciones
-        </p>
-    </footer>
-
-    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-    <script src="script.js"></script>
-
+    <footer class="app-footer"><span>Áurea · Asistente de Precálculo</span><span>Aprender es entender el proceso.</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@14.8.1/lib/browser/math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="app.js"></script>
 </body>
-
 </html>
